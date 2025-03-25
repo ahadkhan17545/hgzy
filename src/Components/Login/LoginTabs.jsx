@@ -4,6 +4,7 @@ import { IoIosMail } from "react-icons/io";
 import { FaLock } from "react-icons/fa";
 import { BiSolidHide, BiSolidShow } from "react-icons/bi";
 import { RiCustomerService2Fill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 const LoginTabs = ({ language, texts }) => {
   const [activeTab, setActiveTab] = useState("phone"); // Default: Phone Login
@@ -29,12 +30,12 @@ const LoginTabs = ({ language, texts }) => {
   };
 
   return (
-    <div className="bg-lightWhite">
+    <div className="bg-lightWhite  pb-14">
         <div className="bg-red text-white p-6">
             <h3 className="text-white">{texts[language].title}</h3>
             <p className="whitespace-pre-wrap text-sm leading-tight">{language === "en" ? "Please log in with your phone number or email\nIf you forget your password, please contact customer service" : "আপনার ফোন নম্বর বা ইমেল দিয়ে লগ ইন করুন \nআপনি যদি আপনার পাসওয়ার্ড ভুলে যান, অনুগ্রহ করে গ্রাহক পরিষেবার সাথে যোগাযোগ করুন"}</p>
         </div>
-      <div className="max-w-md mx-auto mt-2 rounded-md">
+      <div className="px-4 md:px-0  md:max-w-md mx-auto mt-2 rounded-md">
         {/* Tabs */}
         <div className="flex  mb-4">
           <div
@@ -117,7 +118,7 @@ const LoginTabs = ({ language, texts }) => {
           )}
           <div className="flex">
           <FaLock className="w-6 h-6 text-red"/>
-          <h3>{language === "en" ? "Password" : "পাসওয়ার্ড"}</h3>
+          <h3 className="text-black">{language === "en" ? "Password" : "পাসওয়ার্ড"}</h3>
           </div>
 
           <div className="relative">
@@ -127,7 +128,7 @@ const LoginTabs = ({ language, texts }) => {
         placeholder="Password"
         value={formData.password}
         onChange={handleChange}
-        className="w-full p-2 bg-white rounded-md mb-3 pr-10" // Space for icon
+        className="w-full p-2 bg-white  rounded-md mb-3 pr-10" // Space for icon
       />
 
       {/* Toggle Icon */}
@@ -141,7 +142,7 @@ const LoginTabs = ({ language, texts }) => {
 
     <div className="flex">
         <input className="mr-2 w-5 h-5" type="checkbox" name="" id="" />
-        <p>{language === "en" ? "Remember Password" : "পাসওয়ার্ড মনে"}</p>
+        <p className="text-black">{language === "en" ? "Remember Password" : "পাসওয়ার্ড মনে"}</p>
     </div>
 
           <button
@@ -150,21 +151,29 @@ const LoginTabs = ({ language, texts }) => {
           >
             {texts[language].title}
           </button>
+          <Link to="/register">
           <button
             type="submit"
             className="w-full  border border-red text-red py-2 rounded-full"
           >
             {texts[language].signUp}
           </button>
+          </Link>
 
+          
           <div className="grid grid-cols-2 justify-items-center">
-          <div className="flex flex-col items-center">
+          <Link to="/forgot">
+          <button className="flex flex-col items-center">
           <FaLock className="w-12 h-12 text-red"/>
-          <h3>{language === "en" ? "Forget Password" : "পাসওয়ার্ড ভুলে যান"}</h3>
-          </div>
+          
+          <h3 className="text-black">{language === "en" ? "Forget Password" : "পাসওয়ার্ড ভুলে যান"}</h3>
+          
+          </button>
+          </Link>
+          
           <div className="flex flex-col items-center">
           <RiCustomerService2Fill className="w-12 h-12 text-red"/>  
-          <h3>{language === "en" ? "Customer Service" : "গ্রাহক সেবা"}</h3>
+          <h3 className="text-black">{language === "en" ? "Customer Service" : "গ্রাহক সেবা"}</h3>
           </div>
           </div>
         </form>

@@ -1,14 +1,14 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import LoginTabs from "../Components/Login/LoginTabs";
 import { LanguageContext } from "../Components/Context/LanguageContext";
-import TopLogin from "../Components/Login/TopLogin";
+import TopLoginRegisterPassword from "../Components/TopLoginRegisterPassword";
 
-const Login = ({ setIsOpen }) => {
-  const {  language, setLanguage } = useContext(LanguageContext);
+const Login = () => {
+  const { language } = useContext(LanguageContext);
 
   // const [language, setLanguage] = useState("en"); // Default English
-  const [isLangModalOpen, setIsLangModalOpen] = useState(false); // Modal state
-// const [isIopenRegister,setIsOpenRegister] = useState();
+  
+  // const [isIopenRegister,setIsOpenRegister] = useState();
   // Texts for both languages
   const texts = {
     en: {
@@ -18,7 +18,7 @@ const Login = ({ setIsOpen }) => {
       login: "Log in",
       close: "Close",
       changeLang: "EN",
-      signUp:"Register"
+      signUp: "Register",
     },
     bn: {
       title: "প্রবেশ করুন",
@@ -27,30 +27,18 @@ const Login = ({ setIsOpen }) => {
       login: "প্রবেশ করুন",
       close: "বন্ধ করুন",
       changeLang: "BN",
-      signUp:"নিবন্ধন"
+      signUp: "নিবন্ধন",
     },
   };
 
   return (
-    <div className="  inset-0 overflow-y-auto bg-black bg-opacity-50 flex justify-center items-center z-50 transition-all">
-        <div className="bg-lightWhite  rounded-lg shadow-lg w-full  max-w-[480px] mx-auto min-h-screen ">
+    
+      <div className="max-w-[480px] mx-auto min-h-screen ">
+        <TopLoginRegisterPassword />
 
-        
-      <TopLogin 
-      setIsOpen={setIsOpen}
-      setIsLangModalOpen={setIsLangModalOpen}
-      language={language}
-      texts={texts}
-      isLangModalOpen={isLangModalOpen}
-      setLanguage={setLanguage}
-      />
-
-      <LoginTabs
-      texts={texts}
-      language={language}
-      />
+        <LoginTabs texts={texts} language={language} />
       </div>
-    </div>
+    
   );
 };
 

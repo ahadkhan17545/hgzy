@@ -1,18 +1,35 @@
 import { useNavigate } from "react-router-dom";
-import enFlag from "../../assets/en-4c6eba8e.png"; // English flag
-import bnFlag from "../../assets/bd-de258be1.png"; // Bangladeshi flag
+import enFlag from "../assets/en-4c6eba8e.png"; // English flag
+import bnFlag from "../assets/bd-de258be1.png"; // Bangladeshi flag
 import { FaAngleLeft } from "react-icons/fa6";
-import mainLogoWhite from "../../assets/h5setting_202402261158228q1k.png";
+import mainLogoWhite from "../assets/h5setting_202402261158228q1k.png";
+import { useContext, useState } from "react";
+import { LanguageContext } from "./Context/LanguageContext";
 
-const TopLogin = ({
-  setIsLangModalOpen,
-  language,
-  texts,
-  isLangModalOpen,
-  setLanguage,
-}) => {
+const TopLoginRegisterPassword = () => {
   const navigate = useNavigate(); // useNavigate hook
-
+const [isLangModalOpen, setIsLangModalOpen] = useState(false);
+const {  language, setLanguage } = useContext(LanguageContext);
+const texts = {
+  en: {
+    title: "Login",
+    username: "Username",
+    password: "Password",
+    login: "Log in",
+    close: "Close",
+    changeLang: "EN",
+    signUp:"Register"
+  },
+  bn: {
+    title: "প্রবেশ করুন",
+    username: "ইউজারনেম",
+    password: "পাসওয়ার্ড",
+    login: "প্রবেশ করুন",
+    close: "বন্ধ করুন",
+    changeLang: "BN",
+    signUp:"নিবন্ধন"
+  },
+};
   return (
     <div className="sticky top-0">
       <div className="flex bg-red text-white justify-between items-center">
@@ -95,4 +112,4 @@ const TopLogin = ({
   );
 };
 
-export default TopLogin;
+export default TopLoginRegisterPassword;
