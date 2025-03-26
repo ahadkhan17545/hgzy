@@ -72,7 +72,7 @@ const home = () => {
       <SliderBanner />
 
       {/* Winning Information */}
-      <div className="px-4 space-y-2">
+      <div className="px-2.5 sm:px-4 space-y-2">
         <h2 className="pl-1 text-lg font-medium border-l-2 border-red">
           Winning information
         </h2>
@@ -82,7 +82,7 @@ const home = () => {
       </div>
 
       {/* earning chart */}
-      <div className="px-4 space-y-2">
+      <div className="px-2.5 sm:px-4 space-y-2 pb-20">
         <h2 className="pl-1 text-lg font-medium border-l-2 border-red">
           Today{"'"}s earnings chart
         </h2>
