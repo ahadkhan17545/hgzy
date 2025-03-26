@@ -27,7 +27,7 @@ const BottomNavigationBar = () => {
         {/* Center Button */}
         <div className="relative">
           <Link
-            to="/"
+            to="/promotion"
             className="w-16 h-16 bg-red-400 text-white bg-red rounded-full flex justify-center items-center shadow-md -translate-y-6 border-4"
           >
             <IoDiamond size={28} />
