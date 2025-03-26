@@ -1,40 +1,54 @@
+import { Link } from "react-router-dom";
 import { Home, Activity, Wallet, User } from "lucide-react";
 import { IoDiamond } from "react-icons/io5";
 
 const BottomNavigationBar = () => {
   return (
     <div>
-      <div className="max-w-[480px] m-auto fixed bottom-0  w-full bg-white flex justify-around items-center rounded-t-2xl shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]">
+      <div className="max-w-[480px] m-auto fixed bottom-0 w-full bg-white flex justify-around items-center rounded-t-2xl shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]">
         {/* Home */}
-        <div className="flex flex-col items-center text-red-500 cursor-pointer">
+        <Link
+          to="/"
+          className="flex flex-col items-center text-red-500 cursor-pointer"
+        >
           <Home size={24} />
           <span className="text-xs font-medium">Home</span>
-        </div>
+        </Link>
 
         {/* Activity */}
-        <div className="flex flex-col items-center text-gray-500">
+        <Link
+          to="/activity"
+          className="flex flex-col items-center text-gray-500"
+        >
           <Activity size={24} />
           <span className="text-xs font-medium">Activity</span>
-        </div>
+        </Link>
 
         {/* Center Button */}
         <div className="relative">
-          <div className="w-16 h-16 bg-red-400 text-white bg-red rounded-full flex justify-center items-center shadow-md -translate-y-6 border-4">
+          <Link
+            to="/"
+            className="w-16 h-16 bg-red-400 text-white bg-red rounded-full flex justify-center items-center shadow-md -translate-y-6 border-4"
+          >
             <IoDiamond size={28} />
-          </div>
+
+            <span className="absolute text-black bottom-[-16px] left-1/2 transform -translate-x-1/2 text-xs font-medium text-gray-500">
+              Promotion
+            </span>
+          </Link>
         </div>
 
         {/* Wallet */}
-        <div className="flex flex-col items-center text-gray-500">
+        <Link to="/wallet" className="flex flex-col items-center text-gray-500">
           <Wallet size={24} />
           <span className="text-xs font-medium">Wallet</span>
-        </div>
+        </Link>
 
         {/* Account */}
-        <div className="flex flex-col items-center text-gray-500">
+        <Link to="/" className="flex flex-col items-center text-gray-500">
           <User size={24} />
           <span className="text-xs font-medium">Account</span>
-        </div>
+        </Link>
       </div>
     </div>
   );
