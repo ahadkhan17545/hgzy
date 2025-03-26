@@ -1,4 +1,5 @@
 import EarningChart from "../Components/EarningChart/EarningChart";
+import EarningRank from "../Components/EarningChart/EarningRank";
 import HomeTabs from "../Components/HomeTabs/HomeTabs";
 import Marquee from "../Components/Marquee";
 import SliderBanner from "../Components/SliderBanner/SliderBanner";
@@ -89,9 +90,15 @@ const home = () => {
 
       {/* earning chart */}
       <div className="px-2.5 sm:px-4 space-y-2 pb-20">
-        <h2 className="pl-1 text-lg font-medium border-l-2 border-red">
+        
+        <h2 className="pl-1  text-lg font-medium border-l-2 border-red">
           Today{"'"}s earnings chart
         </h2>
+        <div className="">
+
+        
+        <EarningRank userData={userData}/>
+        </div>
         {userData.map((user, index) => (
           <EarningChart key={index} {...user} />
         ))}
