@@ -150,7 +150,7 @@ const RegisterContents = () => {
                 placeholder={language === "en" ? "Set Password" : "পাসওয়ার্ড সেট করুন"}
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full p-2 border rounded-md bg-white" // Space for icon
+                className="w-full p-2 border  rounded-md bg-white" // Space for icon
               />
 
               {/* Toggle Icon */}
@@ -185,7 +185,7 @@ const RegisterContents = () => {
                     : "পাসওয়ার্ড নিশ্চিত করুন"}
                 value={formData.passwordTwo}
                 onChange={handleChange}
-                className="w-full p-2 border rounded-md bg-white" // Space for icon
+                className="w-full p-2 border  rounded-md bg-white" // Space for icon
               />
 
               {/* Toggle Icon */}

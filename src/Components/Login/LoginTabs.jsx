@@ -128,7 +128,7 @@ const LoginTabs = ({ language, texts }) => {
         placeholder="Password"
         value={formData.password}
         onChange={handleChange}
-        className="w-full p-2 bg-white  rounded-md mb-3 pr-10" // Space for icon
+        className="w-full p-2 bg-white    rounded-md mb-3 pr-10" // Space for icon
       />
 
       {/* Toggle Icon */}

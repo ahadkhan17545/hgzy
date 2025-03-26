@@ -8,6 +8,7 @@ export default {
         gray: "#6B7280",
         white: "#FFFFFF",
         text: "#768096",
+        marqueeText:"#303A4c"
       },
       backgroundColor: {
         backgroundWhite: "#f7f8ff",
@@ -20,5 +21,5 @@ export default {
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [],
 };

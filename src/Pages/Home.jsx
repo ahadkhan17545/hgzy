@@ -1,4 +1,6 @@
 import EarningChart from "../Components/EarningChart/EarningChart";
+import HomeTabs from "../Components/HomeTabs/HomeTabs";
+import Marquee from "../Components/Marquee";
 import SliderBanner from "../Components/SliderBanner/SliderBanner";
 import WinningInformation from "../Components/WinningInformation/WinningInformation";
 
@@ -70,6 +72,10 @@ const home = () => {
   return (
     <div className="bg-backgroundWhite">
       <SliderBanner />
+{/* Marquee */}
+<Marquee/>
+      {/* HomeTabs */}
+      <HomeTabs />
 
       {/* Winning Information */}
       <div className="px-4 space-y-2">

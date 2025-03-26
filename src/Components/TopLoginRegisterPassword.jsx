@@ -58,7 +58,7 @@ const texts = {
           onClick={() => {
             setIsLangModalOpen(false);
           }}
-          className="fixed inset-0 flex items-end bg-black bg-opacity-50 z-50"
+          className="fixed inset-0 flex items-end bg-black bg-opacity-50 z-9999"
         >
           <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-[480px] mx-auto">
             <div
