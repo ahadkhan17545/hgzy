@@ -5,7 +5,7 @@ const WithdrawTop = () => {
   return (
     <div className="text-black bg-white py-2 max-w-[480px] m-auto fixed top-0 w-full z-40">
       <div className="flex justify-between items-center pr-4">
-        <Link to="/">
+        <Link to="/wallet">
           <div className="px-1">
             <RxCaretLeft size={30} />
           </div>
