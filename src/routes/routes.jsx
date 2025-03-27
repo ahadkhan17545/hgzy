@@ -15,6 +15,8 @@ import AddSlider from "../admin/pages/slider/Addslider";
 import Sliderlist from "../admin/pages/slider/Sliderlist";
 import Addsectiongame from "../admin/pages/gamelist/Addsectiongame";
 import Sectiongame from "../admin/pages/gamelist/Sectiongame";
+import Account from "../Pages/Account";
+import Language from "../Pages/Language";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +36,7 @@ const router = createBrowserRouter([
 
     ],
   },
+  { path: "/account", element: <Account /> },
   { path: "/promotion", element: <Promotion /> },
   { path: "/activity", element: <Activity /> },
   { path: "/wallet", element: <Wallet /> },
@@ -41,6 +44,7 @@ const router = createBrowserRouter([
   { path: "/admin-login", element: <AdminLogin /> },
   { path: "/register", element: <Register /> },
   { path: "/forgot", element: <ForgotPassword /> },
+  { path: "/language", element: <Language /> },
 ]);
 
 export default router;

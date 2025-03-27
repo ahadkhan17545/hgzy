@@ -26,7 +26,7 @@ const PromotionMainPart = () => {
   };
 
   return (
-    <div className="bg-white min-h-screen mb-32 ">
+    <div className="bg-white min-h-screen pb-32 ">
      <PromotionHeader language={language}
      sectionsData={sectionsData}
      itemsData={itemsData}

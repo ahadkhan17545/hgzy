@@ -8,7 +8,9 @@ export default {
         gray: "#6B7280",
         white: "#FFFFFF",
         text: "#768096",
-        marqueeText:"#303A4c"
+        marqueeText:"#303A4c",
+        accountYellow:"#FEAA57",
+        
       },
       backgroundColor: {
         backgroundWhite: "#f7f8ff",
@@ -18,6 +20,7 @@ export default {
         lightWhite: "#E0E0E0",
         sideBg: "#9195A3",
         amountBG: "#f95959",
+        accountYellow:"#FEAA57",
       },
     },
   },
