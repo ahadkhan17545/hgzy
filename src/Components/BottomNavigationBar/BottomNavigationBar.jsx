@@ -45,7 +45,7 @@ const BottomNavigationBar = () => {
         </Link>
 
         {/* Account */}
-        <Link to="/" className="flex flex-col items-center text-gray-500">
+        <Link to="/account" className="flex flex-col items-center text-gray-500">
           <User size={24} />
           <span className="text-xs font-medium">Account</span>
         </Link>
