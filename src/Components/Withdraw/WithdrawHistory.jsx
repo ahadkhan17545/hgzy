@@ -1,6 +1,8 @@
 import { MdFileCopy } from "react-icons/md";
 import { TbCurrencyTaka } from "react-icons/tb";
 import empty from "../../../public/empty.png";
+import { FaPlus } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const WithdrawHistory = () => {
   return (
@@ -31,16 +33,44 @@ const WithdrawHistory = () => {
           </div>
         </div>
 
+        <div className="grid grid-cols-3 gap-4">
+          <div className="px-6 py-7 text-white bg-red text-center rounded-md">
+            <p>E-Wallet</p>
+          </div>
+          <div className="px-2 py-4 hover:text-white bg-white hover:bg-red duration-300 text-center rounded-md">
+            <img
+              className="w-8 m-auto"
+              src="https://ossimg.crhhh.com/bdtgame/payNameIcon/WithBeforeImgIcon_20230912191710wdgg.png"
+              alt=""
+            />
+            <p>USDT</p>
+          </div>
+        </div>
+
+        <Link>
+          <div className="mt-3 p-2 flex flex-col items-center justify-center bg-white rounded-lg">
+            <div className="p-3 rounded-sm border border-dashed text-gray border-gray">
+              <FaPlus />
+            </div>
+            <p>Add</p>
+          </div>
+        </Link>
+
         <div className="bg-white p-4 rounded-md space-y-4">
-          <form action="">
+          <form action="" className="space-y-2">
             <input
               type="text"
-              className="w-full px-4 py-2 bg-backgroundWhite rounded-full border-none outline-none"
+              className="w-full px-6 py-2 bg-backgroundWhite rounded-full border-none outline-none"
               placeholder="৳"
             />
 
-            <div className="">
-                <p></p>
+            <div className="text-red text-sm font-medium flex justify-between items-center gap-1">
+              <p className="font-normal">Withdrawable balance৳0.00</p>
+              <span className="px-6 border border-red rounded-xl">All</span>
+            </div>
+            <div className="text-gray text-sm font-medium flex justify-between items-center gap-1">
+              <p className="font-normal">Withdrawal amount received</p>
+              <span className="text-red">৳0.00</span>
             </div>
 
             <button className="w-full p-2 text-base font-semibold text-white bg-red rounded-full">
