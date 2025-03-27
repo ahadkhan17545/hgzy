@@ -1,9 +1,12 @@
+import { useEffect, useState } from "react";
 import EarningChart from "../Components/EarningChart/EarningChart";
 import EarningRank from "../Components/EarningChart/EarningRank";
 import HomeTabs from "../Components/HomeTabs/HomeTabs";
 import Marquee from "../Components/Marquee";
 import SliderBanner from "../Components/SliderBanner/SliderBanner";
 import WinningInformation from "../Components/WinningInformation/WinningInformation";
+import loadingImg from "../assets/start.png";
+import logo from "../assets//h5setting_202402261158175271.png";
 
 const winners = [
   {
@@ -69,12 +72,35 @@ const userData = [
     amount: 178032240.0,
   },
 ];
-const home = () => {
+const Home = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="fixed inset-0 flex flex-col items-center justify-center bg-backgroundWhite ">
+        <img
+          src={loadingImg}
+          alt="Loading..."
+          className="w-full max-w-[400px] mx-auto"
+        />
+        <img src={logo} alt="" />
+      </div>
+    );
+  }
+
   return (
     <div className="bg-backgroundWhite">
       <SliderBanner />
-{/* Marquee */}
-<Marquee/>
+      {/* Marquee */}
+      <Marquee />
       {/* HomeTabs */}
       <HomeTabs />
 
@@ -90,14 +116,11 @@ const home = () => {
 
       {/* earning chart */}
       <div className="px-2.5 sm:px-4 space-y-2 pb-20">
-        
         <h2 className="pl-1  text-lg font-medium border-l-2 border-red">
           Today{"'"}s earnings chart
         </h2>
         <div className="">
-
-        
-        <EarningRank userData={userData}/>
+          <EarningRank userData={userData} />
         </div>
         {userData.map((user, index) => (
           <EarningChart key={index} {...user} />
@@ -107,4 +130,4 @@ const home = () => {
   );
 };
 
-export default home;
+export default Home;
