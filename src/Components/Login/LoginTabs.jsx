@@ -4,10 +4,14 @@ import { IoIosMail } from "react-icons/io";
 import { FaLock } from "react-icons/fa";
 import { BiSolidHide, BiSolidShow } from "react-icons/bi";
 import { RiCustomerService2Fill } from "react-icons/ri";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import toast,{Toaster} from "react-hot-toast";
 const LoginTabs = ({ language, texts }) => {
+  const base_url="https://api.wingobd.com"
+  const navigate=useNavigate();
   const [activeTab, setActiveTab] = useState("phone"); // Default: Phone Login
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     phone: "",
     email: "",
@@ -24,13 +28,36 @@ const LoginTabs = ({ language, texts }) => {
     setFormData({ ...formData, countryCode: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitted Data:", formData);
+    setLoading(true);
+
+    try {
+      const loginData =
+        activeTab === "phone"
+          ? { phone: formData.phone, password: formData.password }
+          : { email: formData.email, password: formData.password };
+
+      const response = await axios.post(`${base_url}/auth/login`, loginData);
+
+      if (response.data.success) {
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("user", response.data.user);
+        toast.success("Login successful!");
+        navigate("/")
+      } else {
+        toast.error(response.data.message || "Login failed!");
+      }
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Something went wrong!");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="bg-lightWhite  pb-14">
+      <Toaster/>
         <div className="bg-red text-white p-6">
             <h3 className="text-white">{texts[language].title}</h3>
             <p className="whitespace-pre-wrap text-sm leading-tight">{language === "en" ? "Please log in with your phone number or email\nIf you forget your password, please contact customer service" : "আপনার ফোন নম্বর বা ইমেল দিয়ে লগ ইন করুন \nআপনি যদি আপনার পাসওয়ার্ড ভুলে যান, অনুগ্রহ করে গ্রাহক পরিষেবার সাথে যোগাযোগ করুন"}</p>
@@ -152,12 +179,10 @@ const LoginTabs = ({ language, texts }) => {
             {texts[language].title}
           </button>
           <Link to="/register">
-          <button
-            type="submit"
-            className="w-full  border border-red text-red py-2 rounded-full"
-          >
-            {texts[language].signUp}
+          <button type="submit" className="w-full bg-sideBg text-white py-2 rounded-full" disabled={loading}>
+            {loading ? "Logging in..." : texts[language].title}
           </button>
+
           </Link>
 
           

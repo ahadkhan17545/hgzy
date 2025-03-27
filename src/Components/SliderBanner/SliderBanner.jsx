@@ -1,7 +1,8 @@
+import React,{useState,useEffect} from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-
+import axios from "axios";
 const SliderBanner = () => {
   const slides = [
     {
@@ -25,7 +26,23 @@ const SliderBanner = () => {
       img: "https://ossimg.crhhh.com/bdtgame/banner/Banner_20240224212449xcqb.png",
     },
   ];
+  const [banners, setBanners] = useState([]);
 
+  // Fetch banners from API
+  useEffect(() => {
+    const fetchBanners = async () => {
+      try {
+        console.log("hello")
+        const response = await axios.get("https://api.wingobd.com/admin/banners"); // Update with your API endpoint
+        setBanners(response.data.filenames || []); // Set filenames as banners
+        console.log(response)
+      } catch (error) {
+        console.error("Error fetching banners:", error);
+      }
+    };
+
+    fetchBanners();
+  }, []);
   return (
     <div className="px-2.5 sm:px-4 w-full max-w-4xl mx-auto">
       <Swiper
@@ -35,10 +52,10 @@ const SliderBanner = () => {
         autoplay={{ delay: 4000, disableOnInteraction: false }}
         loop={true}
       >
-        {slides.map((slide) => (
+        {banners.map((slide) => (
           <SwiperSlide key={slide.id}>
             <img
-              src={slide.img}
+              src={`https://api.wingobd.com/images/${slide}`}
               alt={`Slide ${slide.id}`}
               className="w-full h-44 sm:h-48 object-fill rounded-xl shadow-lg"
             />

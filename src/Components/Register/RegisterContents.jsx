@@ -3,9 +3,12 @@ import { IoMdPhonePortrait } from "react-icons/io";
 import { FaLock } from "react-icons/fa";
 import { BiSolidHide, BiSolidShow } from "react-icons/bi";
 import { LanguageContext } from "../Context/LanguageContext";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import toast,{Toaster} from "react-hot-toast";
 const RegisterContents = () => {
+  const base_url="https://api.wingobd.com"
+  const navigate=useNavigate();
   const texts = {
     en: {
       title: "Login",
@@ -49,11 +52,37 @@ const RegisterContents = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submitted Data:", formData);
+    if (!formData.phone) {
+      return toast.error("Phone number is required");
+    }
+    if (!formData.password || formData.password.length < 6) {
+      return toast.error("Password must be at least 6 characters long");
+    }
+    if (formData.password !== formData.passwordTwo) {
+      return toast.error("Passwords do not match");
+    }
+    
+    try {
+      axios.post(`${base_url}/auth/register`, formData)
+      .then((res)=>{
+        if(res.data.success){
+          navigate("/login")
+          toast.success("Registration successful!");
+        }else{
+          toast.error(res.data.message);
+        }
+      }).catch((err)=>{
+        console.log(err)
+      })
+     
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Registration failed");
+    }
   };
 
   return (
     <div className="bg-lightWhite pb-5">
+      <Toaster/>
       <div className="bg-red text-white p-6">
         <h3 className="text-white">{texts[language].signUp}</h3>
         <p className="whitespace-pre-wrap text-sm leading-tight">
