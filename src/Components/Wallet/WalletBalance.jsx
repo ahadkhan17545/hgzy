@@ -28,7 +28,7 @@ const WalletBalance = () => {
               Main wallet transfer
             </button>
             <div className="flex justify-around gap-1">
-              <Link>
+              <Link to={"/deposit"}>
                 <div className="">
                   <img
                     className="w-12 h-12 m-auto"
@@ -38,7 +38,7 @@ const WalletBalance = () => {
                   <p className="text-sm w-12 text-center text-text">Deposit</p>
                 </div>
               </Link>
-              <Link>
+              <Link to={"/withdraw"}>
                 <div className="">
                   <img
                     className="w-12 h-12 m-auto"
@@ -76,8 +76,31 @@ const WalletBalance = () => {
           </div>
         </div>
 
-        <div className="px-2 sm:px-4">
-          <div className=""></div>
+        <div className="px-2 sm:px-4 grid grid-cols-3 gap-2.5 pb-16">
+          <div className="px-4 py-5 text-center text-sm font-normal bg-white rounded-md">
+            <span className="text-black">0.00</span>
+            <p className="text-text">Lottery</p>
+          </div>
+          <div className="px-4 py-5 text-center text-sm font-normal bg-white rounded-md">
+            <span className="text-black">0.00</span>
+            <p className="text-text">TB_Chess</p>
+          </div>
+          <div className="px-4 py-5 text-center text-sm font-normal bg-white rounded-md">
+            <span className="text-black">0.00</span>
+            <p className="text-text">JDB</p>
+          </div>
+          <div className="px-4 py-5 text-center text-sm font-normal bg-white rounded-md">
+            <span className="text-black">0.00</span>
+            <p className="text-text">DG</p>
+          </div>
+          <div className="px-4 py-5 text-center text-sm font-normal bg-white rounded-md">
+            <span className="text-black">0.00</span>
+            <p className="text-text">CMD</p>
+          </div>
+          <div className="px-4 py-5 text-center text-sm font-normal bg-white rounded-md">
+            <span className="text-black">0.00</span>
+            <p className="text-text">SaBa</p>
+          </div>
         </div>
       </div>
     </div>
