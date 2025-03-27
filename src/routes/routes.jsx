@@ -17,6 +17,8 @@ import Addsectiongame from "../admin/pages/gamelist/Addsectiongame";
 import Sectiongame from "../admin/pages/gamelist/Sectiongame";
 import Deposit from "../Pages/Deposit";
 import Withdraw from "../Pages/Withdraw";
+import Account from "../Pages/Account";
+import Language from "../Pages/Language";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,7 @@ const router = createBrowserRouter([
       { path: "/dashboard/all-games", element: <Sectiongame /> },
     ],
   },
+  { path: "/account", element: <Account /> },
   { path: "/promotion", element: <Promotion /> },
   { path: "/activity", element: <Activity /> },
   { path: "/wallet", element: <Wallet /> },
@@ -44,6 +47,7 @@ const router = createBrowserRouter([
   { path: "/admin-login", element: <AdminLogin /> },
   { path: "/register", element: <Register /> },
   { path: "/forgot", element: <ForgotPassword /> },
+  { path: "/language", element: <Language /> },
 ]);
 
 export default router;

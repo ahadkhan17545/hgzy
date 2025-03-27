@@ -5,7 +5,7 @@ const gameSchema = new mongoose.Schema(
     category: {
       type: String,
       required: true,
-      enum: ["aviator", "fortune-totem"], // Add more categories if needed
+      enum: ["জনপ্রিয়","প্ল্যাটফর্ম সুপারিশ"], // Add more categories if needed
     },
     name: {
       type: String,

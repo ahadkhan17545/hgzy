@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import tab1 from "../../assets/gamecategory_20230725010810ntvi.png";
 import tab2 from "../../assets/gamecategory_20230725010843wkhh.png";
 import tab3 from "../../assets/gamecategory_20230725010848q8ha.png";
@@ -32,40 +32,26 @@ import tab8Content1 from '../../assets/902.png';
 import tab8Content2 from '../../assets/900.png';
 import { LanguageContext } from "../Context/LanguageContext";
  import TabsContents from "./TabsContents";
+import { GameContext } from "../../context/GameContext";
 
 const HomeTabs = () => {
     const { language } = useContext(LanguageContext);
     const [activeTab, setActiveTab] = useState(3);
+    const {fetchAllGames,popular_game,plartform_game}=useContext(GameContext)
+    useEffect(()=>{
+        fetchAllGames();
+    },[])
     const contentRef = useRef(null);
     const tabNames = {
         en: ["Popular", "Lottery", "Slots", "Sports", "Casino", "Rummy", "Fishing", "Original"],
         bn: ["জনপ্রিয়", "লটারি", "বৈদ্যুতিক", "স্পোর্টস", "ক্যাসিনো গেম", "দাবা", "মাছ শিকার", "গেমস"],
     };
     const tabs = [
-        { id: 1, image: tab1, bgImage: tab1Bg, contentBg: [tab1Content1, tab1Content2], contentTwoBg:[tab1ContentTwo1,tab1ContentTwo2] 
+        { id: 1, image: tab1, bgImage: tab1Bg, contentBg:popular_game, contentTwoBg:plartform_game
             
         },
         { id: 2, image: tab2, bgImage: tab2Bg ,
-            contents: [
-            {
-                title: "Win Go",
-                description: {
-                    en: "Guess Number \n Green/Red/Violet to win",
-                    bn: "সংখ্যা অনুমান\nসবুজ/বেগুনি/লাল জয়"
-                },
-                image: tab2Content1
-            },
-            {
-                title: "K3",
-                description: {
-                    en:"Guess Number\nBig/Small/Odd/Even ",
-                    bn:"সংখ্যা অনুমান\nউচ্চ/নিম্ন/বিজোড়/জোড়",
-                },
-                
-                
-                image: tab2Content2
-            }
-        ]},
+            contents: []},
         { id: 3, image: tab3, bgImage: tab3Bg,contentBg: [tab3Content1, tab3Content2,tab3Content3, ]
             
          },
@@ -98,7 +84,7 @@ const HomeTabs = () => {
         { id: 7, image: tab7, bgImage: tab7Bg ,contentBg: [tab7Content1, tab7Content2, ]},
         { id: 8, image: tab8, bgImage: tab8Bg,contentBg: [tab8Content1, tab8Content2, ] },
     ];
-    
+    console.log(tabs[0].contentTwoBg)
     const handleTabClick = (id) => {
         setActiveTab(id);
         setTimeout(() => {

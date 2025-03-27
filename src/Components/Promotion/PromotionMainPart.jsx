@@ -33,6 +33,13 @@ const PromotionMainPart = () => {
         itemsData={itemsData}
       />
       <PromotionLast language={language} />
+
+    <div className="bg-white min-h-screen pb-32 ">
+     <PromotionHeader language={language}
+     sectionsData={sectionsData}
+     itemsData={itemsData}
+     />
+     <PromotionLast language={language}/>
     </div>
   );
 };
