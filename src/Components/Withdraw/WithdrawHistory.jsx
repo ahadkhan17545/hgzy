@@ -49,9 +49,11 @@ const WithdrawHistory = () => {
 
         <Link>
           <div className="mt-3 p-2 flex flex-col items-center justify-center bg-white rounded-lg">
+            <Link to="/method">
             <div className="p-3 rounded-sm border border-dashed text-gray border-gray">
               <FaPlus />
             </div>
+            </Link>
             <p>Add</p>
           </div>
         </Link>
