@@ -13,7 +13,7 @@ const Sectiongame = () => {
   useEffect(() => {
     const fetchGames = async () => {
       try {
-        const response = await axios.get("https://api.wingobd.com/admin/all-api-games");
+        const response = await axios.get("http://localhost:8080/admin/all-api-games");
         setGames(response.data);
       } catch (error) {
         console.error("Error fetching games:", error);

@@ -33,7 +33,7 @@ const Addsectiongame = () => {
     formData.append("image", image);
 
     try {
-      const response = await axios.post("https://api.wingobd.com/admin/add-api-game", formData, {
+      const response = await axios.post("http://localhost:8080/admin/add-api-game", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -67,8 +67,8 @@ const Addsectiongame = () => {
             className="w-full border p-2 rounded-md mb-4"
           >
             <option value="">Choose Category</option>
-            <option value="aviator">Aviator</option>
-            <option value="fortune-totem">Fortune Totem</option>
+            <option value="জনপ্রিয়">জনপ্রিয়</option>
+            <option value="প্ল্যাটফর্ম সুপারিশ">প্ল্যাটফর্ম সুপারিশ</option>
           </select>
 
           {/* Optional Name Field */}

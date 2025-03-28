@@ -603,4 +603,25 @@ admin_route.get("/all-api-games", async (req, res) => {
     res.status(500).json({ message: "Server error", error });
   }
 });
+// @route   GET /api/games/category/:category
+// @desc    Get games by category
+// @access  Public
+admin_route.get("/api-games/category", async (req, res) => {
+  try {
+
+    // Define the two categories
+    const category1 = "প্ল্যাটফর্ম সুপারিশ";
+    const category2 = "জনপ্রিয়";
+
+    const find_popular_games=await Apimodel.find({category:category2})
+    const find_plartform_games=await Apimodel.find({category:category1})
+
+    res.json({message:"ok",find_popular_games,find_plartform_games});
+  } catch (error) {
+    console.error("Error fetching games by category:", error);
+    res.status(500).json({ message: "Server error", error });
+  }
+});
+
+
 module.exports=admin_route;

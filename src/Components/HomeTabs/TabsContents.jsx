@@ -20,7 +20,7 @@ const TabsContents = ({ contentRef, activeTab, tabNames, language, tabs }) => {
                 {tabs[activeTab - 1].contentTwoBg.map((imgSrc, index) => (
                   <img
                     key={index}
-                    src={imgSrc}
+                    src={`http://localhost:8080/images/${imgSrc.imagePath}`}
                     alt={`Content ${index + 1}`}
                     className={`${
                       activeTab === 3
@@ -49,8 +49,8 @@ const TabsContents = ({ contentRef, activeTab, tabNames, language, tabs }) => {
                   {tabs[activeTab - 1].contentBg.map((imgSrc, index) => (
                     <img
                       key={index}
-                      src={imgSrc}
-                      alt={`Content ${index + 1}`}
+                      src={`http://localhost:8080/images/${imgSrc.imagePath}`}
+                      alt={`${imgSrc}`}
                       className={` ${
                         activeTab === 3
                           ? "bg-red rounded-xl h-[90%]"

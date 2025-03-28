@@ -15,12 +15,22 @@ import AddSlider from "../admin/pages/slider/Addslider";
 import Sliderlist from "../admin/pages/slider/Sliderlist";
 import Addsectiongame from "../admin/pages/gamelist/Addsectiongame";
 import Sectiongame from "../admin/pages/gamelist/Sectiongame";
+import DemoGame from "../Pages/DemoGame";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
-    children: [{ path: "/", element: <Home /> }],
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/games/:id",
+        element: <DemoGame />,
+      },
+    ],
   },
   {
     path: "/dashboard",
@@ -31,7 +41,6 @@ const router = createBrowserRouter([
       { path: "/dashboard/slider-list", element: <Sliderlist /> },
       { path: "/dashboard/add-game", element: <Addsectiongame /> },
       { path: "/dashboard/all-games", element: <Sectiongame /> },
-
     ],
   },
   { path: "/promotion", element: <Promotion /> },

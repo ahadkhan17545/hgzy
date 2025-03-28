@@ -45,7 +45,7 @@ export default function AddSlider() {
     images.forEach((img) => formData.append("images", img.file));
 
     try {
-      const response = await axios.post("https://api.wingobd.com/admin/upload", formData, {
+      const response = await axios.post("http://localhost:8080/admin/upload", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

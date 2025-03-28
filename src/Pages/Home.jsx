@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import EarningChart from "../Components/EarningChart/EarningChart";
 import EarningRank from "../Components/EarningChart/EarningRank";
 import HomeTabs from "../Components/HomeTabs/HomeTabs";
@@ -7,6 +7,7 @@ import SliderBanner from "../Components/SliderBanner/SliderBanner";
 import WinningInformation from "../Components/WinningInformation/WinningInformation";
 import loadingImg from "../assets/start.png";
 import logo from "../assets//h5setting_202402261158175271.png";
+import { GameContext } from "../context/GameContext";
 
 const winners = [
   {
@@ -74,6 +75,9 @@ const userData = [
 ];
 const Home = () => {
   const [isLoading, setIsLoading] = useState(true);
+  const { games } = useContext(GameContext);
+
+  console.log("games", games);
 
   useEffect(() => {
     const timer = setTimeout(() => {
