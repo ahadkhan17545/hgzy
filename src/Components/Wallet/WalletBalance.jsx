@@ -1,13 +1,20 @@
+import { useContext, useEffect } from "react";
 import { IoIosWallet } from "react-icons/io";
 import { Link } from "react-router-dom";
+import { GameContext } from "../../context/GameContext";
 
 const WalletBalance = () => {
+  const {fetchUserInfo,user}=useContext(GameContext);
+ 
+  useEffect(()=>{
+    fetchUserInfo();
+  },[])
   return (
     <div className="bg-backgroundWhite">
       <div className="pt-10 pb-16">
         <div className="pt-6 pb-2 text-white bg-red text-center">
           <IoIosWallet size={40} className="w-30 m-auto" />
-          <span className="text-3xl font-semibold">৳0.00</span>
+          <span className="text-3xl font-semibold">৳{user?.balance.toFixed(0,2)}</span>
           <p className="text-sm font-normal">Total balance</p>
         </div>
 
@@ -16,7 +23,7 @@ const WalletBalance = () => {
           <div className="px-2 py-4 rounded-md bg-white space-y-4">
             <div className="flex justify-around gap-1 items-center">
               <div className="text-center">
-                <span className="text-base font-semibold">৳0.00</span>
+                <span className="text-base font-semibold">৳{user?.balance.toFixed(0,2)}</span>
                 <p className="text-sm font-normal">Main wallet</p>
               </div>
               <div className="text-center">

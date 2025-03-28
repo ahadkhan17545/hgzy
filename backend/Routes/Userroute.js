@@ -16,8 +16,8 @@ user_route.post('/create-deposit', async (req, res) => {
         transactionId,
         merchant_name,
         agent_number,
-        customer_name,
-        customer_email,
+        customer_number,
+        customer_id,
       } = req.body;
   
       // Check if transactionId already exists
@@ -31,6 +31,7 @@ user_route.post('/create-deposit', async (req, res) => {
   
       // Create new deposit entry
       const deposit = new Deposit_model({
+        customer_id,
         paymentMethod,
         depositAmount,
         userWalletNumber,
@@ -38,8 +39,7 @@ user_route.post('/create-deposit', async (req, res) => {
         merchant_name,
         agent_number,
         orderId,
-        customer_name,
-        customer_email,
+        customer_number
       });
   
       // Save deposit to the database
@@ -96,11 +96,11 @@ user_route.post('/create-deposit', async (req, res) => {
 // Route to create a new withdrawal request
 // Route to create a new withdrawal request
 user_route.post('/withdraw', async (req, res) => {
-  const { paymentMethod, amount, walletNumber, customer_name, customer_email } = req.body;
+  const { paymentMethod, amount, walletNumber, customer_id} = req.body;
 
   try {
     // Check if the user has sufficient balance
-    const user = await user_model.findOne({ email: customer_email });
+    const user = await user_model.findOne({ _id: customer_id });
 
     if (!user) {
       return res.status(404).json({
@@ -124,8 +124,7 @@ user_route.post('/withdraw', async (req, res) => {
       paymentMethod,
       amount,
       walletNumber,
-      customer_name,
-      customer_email,
+      customer_id
     });
 
     // Save the withdrawal request to the database
@@ -188,7 +187,32 @@ user_route.put('/withdraw/:orderId', async (req, res) => {
     });
   }
 });
+// Route to get withdrawal history by ID
+user_route.get('/withdraw/:id', async (req, res) => {
+  const { id } = req.params;
+  console.log(id)
+  try {
+    // Fetch the withdrawal record by ID
+    const withdrawal = await Withdraw_model.find({customer_id:id});
+ console.log(withdrawal)
+    if (!withdrawal) {
+      return res.status(404).json({
+        message: 'Withdrawal not found.',
+      });
+    }
 
+    res.status(200).json({
+      message: 'Withdrawal details retrieved successfully.',
+      data: withdrawal,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      message: 'Failed to retrieve withdrawal details.',
+      error: error.message,
+    });
+  }
+});
 // Route to get all withdrawal requests
 user_route.get('/withdraw', async (req, res) => {
   try {
@@ -302,5 +326,22 @@ user_route.put("/after-withdraw-minus-balance",async(req,res)=>{
   }
 });
   
+user_route.get("/user-deposits/:userId", async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    // Find deposits related to the user
+    const deposits = await Deposit_model.find({ customer_id: userId }).sort({ createdAt: -1 });
+
+    if (!deposits.length) {
+      return res.status(404).json({ success: false, message: "No deposit records found." });
+    }
+
+    res.status(200).json({ success: true, deposits });
+  } catch (error) {
+    console.error("Error fetching deposits:", error);
+    res.status(500).json({ success: false, message: "Internal server error." });
+  }
+});
 
 module.exports=user_route;

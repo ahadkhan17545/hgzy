@@ -13,6 +13,7 @@ const LogoFavicon = require("../Models/LogoFaviconmodel");
 const moment = require("moment"); // Make sure you have moment.js installed
 const Gamemodel = require("../Models/Gamemodel");
 const Apimodel = require("../Models/Apimodel");
+const { User } = require("lucide-react");
 // ------------file-upload----------
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -107,7 +108,7 @@ admin_route.get("/all-coutation", async (req, res) => {
 });
 admin_route.get("/all-users", async (req, res) => {
   try {
-    const all_users = await user_model.find();
+    const all_users = await User.find();
     if (!all_users) {
       return res.send({ success: false, message: "Users Not found!" });
     }
@@ -118,7 +119,7 @@ admin_route.get("/all-users", async (req, res) => {
 });
 admin_route.get("/active-users", async (req, res) => {
   try {
-    const active_user = await user_model.find({ status: "active" });
+    const active_user = await User.find();
     if (!active_user) {
       return res.send({ success: false, message: "Active Users Not found!" });
     }
@@ -129,7 +130,7 @@ admin_route.get("/active-users", async (req, res) => {
 });
 admin_route.get("/banned-users", async (req, res) => {
   try {
-    const banned_user = await user_model.find({ status: "banned" });
+    const banned_user = await User.find({ status: "banned" });
     if (!banned_user) {
       return res.send({ success: false, message: "Banned Users Not found!" });
     }
@@ -140,7 +141,7 @@ admin_route.get("/banned-users", async (req, res) => {
 });
 admin_route.get("/single-user-details/:id", async (req, res) => {
   try {
-    const user_detail = await user_model.findOne({ _id: req.params.id });
+    const user_detail = await User.findOne({ _id: req.params.id });
     if (!user_detail) {
       return res.send({ success: false, message: "User Not found!" });
     }
@@ -226,7 +227,7 @@ admin_route.put("/deposit/:id/status", async (req, res) => {
 
     // If approved, update user's balance
     if (status === "approved") {
-      const user = await user_model.findOne({ email: deposit.customer_email });
+      const user = await user_model.findOne({_id:deposit.customer_id });
       console.log(user);
       if (!user) {
         return res.status(404).json({ message: "User not found" });
@@ -714,6 +715,16 @@ admin_route.get("/api-games/category", async (req, res) => {
 
     const find_popular_games = await Apimodel.find({ category: category2 });
     const find_plartform_games = await Apimodel.find({ category: category1 });
+    const find_lottery_games = await Apimodel.find({ category:"লটারি" });
+    const lottery_games = await Apimodel.find({ category:"লটারি" });
+    const electric_games = await Apimodel.find({ category:"বৈদ্যুতিক" });
+    const sports_games = await Apimodel.find({ category:"স্পোর্টস" });
+    const casino_games = await Apimodel.find({ category:"ক্যাসিনো গেম" });
+    const chesss_games = await Apimodel.find({ category:"দাবা" });
+    const fish_games = await Apimodel.find({ category:"মাছ শিকার" });
+    const games = await Apimodel.find({ category:"গেমস" });
+
+
     const all_games = await Apimodel.find();
 
     res.json({
@@ -721,6 +732,13 @@ admin_route.get("/api-games/category", async (req, res) => {
       find_popular_games,
       find_plartform_games,
       all_games,
+      lottery_games,
+      electric_games,
+      sports_games,
+      casino_games,
+      chesss_games,
+      fish_games,
+      games
     });
   } catch (error) {
     console.error("Error fetching games by category:", error);

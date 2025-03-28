@@ -10,6 +10,10 @@ const depositSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    customer_id:{
+      type: String,
+      required: true,
+    },
     userWalletNumber: {
       type: String,
       required: true,
@@ -19,13 +23,9 @@ const depositSchema = new mongoose.Schema(
       required: true,
       unique: true,  // Ensuring each transaction has a unique ID
     },
-    customer_name:{
+    customer_number:{
       type: String,
       default:"",
-    },
-    customer_email:{
-      type: String,
-      required: true,
     },
     merchant_name: {
       type: String,

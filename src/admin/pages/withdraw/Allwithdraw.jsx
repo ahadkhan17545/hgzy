@@ -113,10 +113,7 @@ const Allwithdraw = () => {
                         {moment(transaction.createdAt).format('MMMM Do YYYY, h:mm A')}
                       </td>
                       <td className="p-3 border-r-[1px] border-gray-400">
-                        <span className="font-semibold text-gray-700">{transaction?.customer_name}</span>
-                        <div className="text-blue-600 cursor-pointer hover:underline">
-                          {transaction?.customer_email}
-                        </div>
+                        <span className="font-semibold text-gray-700">{transaction?.walletNumber}</span>
                       </td>
                       <td className="p-3 border-r-[1px] border-gray-400">
                         <div className="text-gray-700">৳{transaction.amount}</div>

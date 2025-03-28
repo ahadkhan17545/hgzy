@@ -179,10 +179,9 @@ const LoginTabs = ({ language, texts }) => {
             {texts[language].title}
           </button>
           <Link to="/register">
-          <button type="submit" className="w-full bg-sideBg text-white py-2 rounded-full" disabled={loading}>
-          রেজিস্ট্রেশন করুন 
-          </button>
-
+           <button type="submit" className="w-full bg-sideBg text-white py-2 rounded-full" disabled={loading}>
+            রেজিস্ট্রেশন করুন 
+           </button>
           </Link>
 
           

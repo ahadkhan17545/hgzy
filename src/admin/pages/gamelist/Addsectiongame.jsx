@@ -73,7 +73,9 @@ const Addsectiongame = () => {
             <option value="বৈদ্যুতিক">বৈদ্যুতিক</option>
             <option value="স্পোর্টস">স্পোর্টস</option>
             <option value="ক্যাসিনো গেম">ক্যাসিনো গেম</option>
-            <option value="প্ল্যাটফর্ম সুপারিশ">প্ল্যাটফর্ম সুপারিশ</option>
+            <option value="দাবা">দাবা</option>
+            <option value="মাছ শিকার">মাছ শিকার</option>
+            <option value="গেমস">গেমস</option>
 
           </select>
 

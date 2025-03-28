@@ -73,7 +73,7 @@ const TabsContents = ({ contentRef, activeTab, tabNames, language, tabs }) => {
                       className={` ${
                         activeTab === 3
                           ? "bg-red rounded-xl h-[90%]"
-                          : "border-red border rounded-md w-[90%] h-[60%]"
+                          : "border-red border rounded-md w-[90%] h-[70%]"
                       }`}
                     />
                   ))}

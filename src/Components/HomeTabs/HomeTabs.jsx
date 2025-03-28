@@ -8,8 +8,8 @@ import tab6 from "../../assets/tab6.png";
 import tab7 from "../../assets/tab7.png";
 import tab8 from "../../assets/tab8.png";
 import tab1Bg from '../../assets/tab1Bg.png';
-import tab2Bg from '../../assets/tab2Bg.png';
-import tab3Bg from '../../assets/tab3Bg.png';
+import tab2Bg from '../../assets/tab1Bg.png';
+import tab3Bg from '../../assets/tab1Bg.png';
 import tab4Bg from '../../assets/third_bg-dfa325e7.png'
 import tab7Bg from '../../assets/fish_bg-bf0b060b.png';
 import tab8Bg from '../../assets/game_mini_bg-c04fcbbd.png' ;
@@ -37,7 +37,13 @@ import { GameContext } from "../../context/GameContext";
 const HomeTabs = () => {
     const { language } = useContext(LanguageContext);
     const [activeTab, setActiveTab] = useState(3);
-    const {fetchAllGames,popular_game,plartform_game,all_games}=useContext(GameContext)
+    const {fetchAllGames,popular_game,plartform_game,all_games, lottery_games,
+      electric_games,
+      sports_games,
+      casino_games,
+      chesss_games,
+      fish_games,
+      game}=useContext(GameContext)
     useEffect(()=>{
         fetchAllGames();
     },[])
@@ -51,8 +57,8 @@ const HomeTabs = () => {
             
         },
         { id: 2, image: tab2, bgImage: tab2Bg ,
-            contents: []},
-        { id: 3, image: tab3, bgImage: tab3Bg,contentBg: [tab3Content1, tab3Content2,tab3Content3, ]
+            ccontentBg: [tab3Content1, ]},
+        { id: 3, image: tab3, bgImage: tab3Bg,contentBg:electric_games
             
          },
         { id: 4, image: tab4, bgImage: tab4Bg ,
@@ -81,8 +87,8 @@ const HomeTabs = () => {
             
         ] },
         { id: 6, image: tab6, bgImage: tab4Bg },
-        { id: 7, image: tab7, bgImage: tab7Bg ,contentBg: [tab7Content1, tab7Content2, ]},
-        { id: 8, image: tab8, bgImage: tab8Bg,contentBg: [tab8Content1, tab8Content2, ] },
+        { id: 7, image: tab7, bgImage: tab7Bg ,contentBg:fish_games},
+        { id: 8, image: tab8, bgImage: tab8Bg,contentBg:game},
     ];
     console.log(tabs[0].contentTwoBg)
     const handleTabClick = (id) => {
@@ -99,7 +105,7 @@ const HomeTabs = () => {
                 {tabs.slice(0, 3).map((tab, index) => (
                     <div 
                         key={tab.id} 
-                        className={`p-4  w-full ${index === 0 ? "md:h-[110%]" : "h-[100%]"}   cursor-pointer bg-cover bg-center relative`} 
+                        className={`p-4   w-full   cursor-pointer bg-cover bg-center relative`} 
                         style={{ backgroundImage: `url(${tab.bgImage}) ` }}
                         onClick={() => handleTabClick(tab.id)}
                     >
@@ -114,11 +120,11 @@ const HomeTabs = () => {
                 {tabs.slice(3, 6).map((tab, index) => (
                     <div 
                         key={tab.id} 
-                        className="md:p-4 py-4 flex-1 rounded-lg cursor-pointer bg-cover bg-center" 
+                        className="md:p-4 py-4 flex-1 rounded-lg cursor-pointer  bg-cover bg-center" 
                         style={{ backgroundImage: `url(${tab.bgImage})` }}
                         onClick={() => handleTabClick(tab.id)}
                     >
-                        <div className="border-r border-white border-opacity-20">
+                        <div className="border-r  border-white border-opacity-20">
 
                         
                         <img src={tab.image} alt={tabNames[language][index + 3]} className="w-16 h-16 mx-auto" />
