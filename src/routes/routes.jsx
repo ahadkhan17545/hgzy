@@ -16,6 +16,12 @@ import Sliderlist from "../admin/pages/slider/Sliderlist";
 import Addsectiongame from "../admin/pages/gamelist/Addsectiongame";
 import Sectiongame from "../admin/pages/gamelist/Sectiongame";
 import DemoGame from "../Pages/DemoGame";
+import Deposit from "../Pages/Deposit";
+import Withdraw from "../Pages/Withdraw";
+import Account from "../Pages/Account";
+import Language from "../Pages/Language";
+import WalletMethod from "../Pages/WalletMethod";
+import EwalletMethod from "../Pages/EwalletMethod";
 
 const router = createBrowserRouter([
   {
@@ -43,13 +49,19 @@ const router = createBrowserRouter([
       { path: "/dashboard/all-games", element: <Sectiongame /> },
     ],
   },
+  { path: "/account", element: <Account /> },
   { path: "/promotion", element: <Promotion /> },
   { path: "/activity", element: <Activity /> },
   { path: "/wallet", element: <Wallet /> },
+  { path: "/deposit", element: <Deposit /> },
+  { path: "/withdraw", element: <Withdraw /> },
   { path: "/login", element: <Login /> },
   { path: "/admin-login", element: <AdminLogin /> },
   { path: "/register", element: <Register /> },
   { path: "/forgot", element: <ForgotPassword /> },
+  { path: "/language", element: <Language /> },
+  { path: "/method", element: <WalletMethod /> },
+  { path: "/ewallet", element: <EwalletMethod /> },
 ]);
 
 export default router;

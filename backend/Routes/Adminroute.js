@@ -615,8 +615,14 @@ admin_route.get("/api-games/category", async (req, res) => {
 
     const find_popular_games=await Apimodel.find({category:category2})
     const find_plartform_games=await Apimodel.find({category:category1})
+<<<<<<< HEAD
 
     res.json({message:"ok",find_popular_games,find_plartform_games});
+=======
+    const all_games=await Apimodel.find()
+
+    res.json({message:"ok",find_popular_games,find_plartform_games,all_games});
+>>>>>>> e71f58cb084d47a6cf4bfdc78df2431e83302b2a
   } catch (error) {
     console.error("Error fetching games by category:", error);
     res.status(500).json({ message: "Server error", error });

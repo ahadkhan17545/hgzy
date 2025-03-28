@@ -49,11 +49,11 @@ import {
               </div>
               {index === 0 ? (
                 <div className="flex items-center space-x-1 md:space-x-2">
-                  <p className="text-gray-700 text-xs md:text-sm">678954456678</p>
-                  <FaRegCopy className="text-gray-600 text-lg" />
+                  <p className="text-gray text-xs md:text-sm">678954456678</p>
+                  <FaRegCopy className="text-gray text-lg" />
                 </div>
               ) : (
-                <FaChevronRight className="text-gray-600 text-lg" />
+                <FaChevronRight className="text-gray text-lg" />
               )}
             </div>
           ))}

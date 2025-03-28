@@ -5,6 +5,7 @@ import { FaAngleLeft } from "react-icons/fa6";
 import mainLogoWhite from "../assets/h5setting_202402261158228q1k.png";
 import { useContext, useState } from "react";
 import { LanguageContext } from "./Context/LanguageContext";
+import Language from "../Pages/Language";
 
 const TopLoginRegisterPassword = () => {
   const navigate = useNavigate(); // useNavigate hook
@@ -62,7 +63,7 @@ const texts = {
         >
           <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-[480px] mx-auto">
             <div
-              className="flex items-center justify-between p-3 border rounded-md cursor-pointer hover:bg-gray-100"
+              className="flex items-center justify-between p-3 rounded-md cursor-pointer "
               onClick={() => {
                 setLanguage("en");
                 setIsLangModalOpen(false);
@@ -84,7 +85,7 @@ const texts = {
             </div>
 
             <div
-              className="flex items-center justify-between p-3 border rounded-md cursor-pointer hover:bg-gray-100 mt-2"
+              className="flex items-center justify-between p-3  rounded-md cursor-pointer  mt-2"
               onClick={() => {
                 setLanguage("bn");
                 setIsLangModalOpen(false);
@@ -108,6 +109,15 @@ const texts = {
           </div>
         </div>
       )}
+      <div className="hidden">
+        <Language
+        setIsLangModalOpen={setIsLangModalOpen}
+        setLanguage={setLanguage}
+        enFlag={enFlag}
+        bnFlag={bnFlag}
+        language={language}
+        />
+      </div>
     </div>
   );
 };

@@ -1,11 +1,8 @@
 import { useParams } from "react-router-dom";
-import { GameContext } from "../context/GameContext";
-import { useContext } from "react";
 
 const DemoGame = () => {
   const { id } = useParams();
-  const { fetchAllGames } = useContext(GameContext);
-  
+
 
   const demoGames = [
     {
