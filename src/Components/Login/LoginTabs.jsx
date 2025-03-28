@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast,{Toaster} from "react-hot-toast";
 const LoginTabs = ({ language, texts }) => {
-  const base_url="http://localhost:8080"
+  const base_url="https://wingobd.onrender.com"
   const navigate=useNavigate();
   const [activeTab, setActiveTab] = useState("phone"); // Default: Phone Login
   const [loading, setLoading] = useState(false);
