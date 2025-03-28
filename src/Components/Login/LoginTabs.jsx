@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast,{Toaster} from "react-hot-toast";
 const LoginTabs = ({ language, texts }) => {
-  const base_url="https://api.wingobd.com"
+  const base_url="http://localhost:8080"
   const navigate=useNavigate();
   const [activeTab, setActiveTab] = useState("phone"); // Default: Phone Login
   const [loading, setLoading] = useState(false);
@@ -179,10 +179,9 @@ const LoginTabs = ({ language, texts }) => {
             {texts[language].title}
           </button>
           <Link to="/register">
-          <button type="submit" className="w-full bg-sideBg text-white py-2 rounded-full" disabled={loading}>
-          রেজিস্ট্রেশন করুন 
-          </button>
-
+           <button type="submit" className="w-full bg-sideBg text-white py-2 rounded-full" disabled={loading}>
+            রেজিস্ট্রেশন করুন 
+           </button>
           </Link>
 
           

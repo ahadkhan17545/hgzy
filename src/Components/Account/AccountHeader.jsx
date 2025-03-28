@@ -71,7 +71,7 @@ const AccountHeader = () => {
       <div className="w-[94%] absolute text-xs md:text-sm top-28 left-1/2 transform -translate-x-1/2 bg-white shadow-2xl space-x-1 rounded-lg">
         <div className="flex flex-col px-4 pt-5 pb-16">
           <h3 className="text-lg">{content.totalBalance[language]}</h3>
-          <p className="font-bold">৳{user.balance?.toFixed(0,2)}</p>
+          <p className="font-bold">৳{user?.balance.toFixed(0,2)}</p>
           <div className="mt-4 flex justify-between flex-row gap-4 p-4 bg-gray-100 rounded-lg">
             {content.menuItems.map((item, index) => (
               <Link

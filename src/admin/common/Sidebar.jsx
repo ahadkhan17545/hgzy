@@ -37,7 +37,7 @@ const Sidebar = () => {
 	const [approved_withdraw,set_approved_withdraw]=useState();
 	const [rejected_withdraw,setrejected_withdraw]=useState();
 	const [all_withdraw,set_allwithdraw]=useState();
-	const base_url = "https://api.wingobd.com";
+	const base_url = "http://localhost:8080";
 	// ----------------deposit--------------------------
 	const [pending_deposit,set_pending_deposit]=useState();
 	const [success_deposit,set_success_deposit]=useState();
@@ -101,7 +101,7 @@ const Sidebar = () => {
 		icon: HiUserGroup,
 		color: "#26de81",
 		submenu: [
-			{ name: "Active User", href: "/admin-dashboard/active-users",count:active_user},
+			{ name: "Active User", href: "/dashboard/active-users",count:active_user},
 			{ name: "Deactive User", href: "/admin-dashboard/deactive-users",count:inactive_user },
 			{ name: "Mobile Reg User", href: "" },
 			{ name: "Email Reg User", href: "" },
@@ -186,7 +186,7 @@ const Sidebar = () => {
 		{ name: "add Deposit Getway", href: "/users/active-user" },
 		{ name: "All Deposit Methode", href: "/users/banned-user"},
 		{ name: " All Acctive Account", href: "/users/all-user"},
-		{ name: " All Deposit History ", href: "/admin-dashboard/all-deposits",count:all_deposit },
+		{ name: " All Deposit History ", href: "/dashboard/all-deposits",count:all_deposit },
 		{ name: "Deposit Request ", href: "/admin-dashboard/pending-deposits",count:pending_deposit },
 
 	],},
@@ -194,7 +194,7 @@ const Sidebar = () => {
 		{ name: "add Withdraw Getway", href: "/users/active-user" },
 		{ name: "All Withdraw Methode", href: "/users/banned-user"},
 		{ name: " All Acctive Account", href: "/users/all-user" },
-		{ name: " All Withdraw History ", href: "/admin-dashboard/all-withdarwal",count:all_withdraw },
+		{ name: " All Withdraw History ", href: "/dashboard/all-withdraw",count:all_withdraw },
 		{ name: "Withdraw Request ", href: "/admin-dashboard/pending-withdarwal",count:pending_withdraw },
 
 	],},

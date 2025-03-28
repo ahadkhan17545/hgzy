@@ -30,7 +30,7 @@ export const GameProvider = ({ children }) => {
     if (!user) return;
 
     try {
-      const response = await axios.get(`https://api.wingobd.com/user/user-info/${user._id}`);
+      const response = await axios.get(`http://localhost:8080/user/user-info/${user._id}`);
       setUser(response.data);
     } catch (err) {
       console.error("Failed to fetch user info:", err);
@@ -42,7 +42,7 @@ export const GameProvider = ({ children }) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get("https://api.wingobd.com/admin/api-games/category");
+      const response = await axios.get("http://localhost:8080/admin/api-games/category");
       set_popular_game(response.data.find_popular_games);
       set_plartform_game(response.data.find_plartform_games);
       set_all_games(response.data.all_games);
@@ -63,7 +63,7 @@ export const GameProvider = ({ children }) => {
   const fetchDepositById = async () => {
     const user = JSON.parse(localStorage.getItem("user")); // Get user ID from localStorage
     try {
-      const response = await axios.get(`https://api.wingobd.com/user/user-deposits/${user._id}`);
+      const response = await axios.get(`http://localhost:8080/user/user-deposits/${user._id}`);
       setDepositData(response.data.deposits);
       console.log(response.data.deposits)
     } catch (err) {
@@ -77,7 +77,7 @@ export const GameProvider = ({ children }) => {
    const fetchwithdrawById = async () => {
     const user = JSON.parse(localStorage.getItem("user")); // Get user ID from localStorage
     try {
-      const response = await axios.get(`https://api.wingobd.com/user/withdraw/${user._id}`);
+      const response = await axios.get(`http://localhost:8080/user/withdraw/${user._id}`);
       set_withdrawal(response.data.data);
       console.log(response.data.data)
     } catch (err) {

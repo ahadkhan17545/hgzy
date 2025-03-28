@@ -33,7 +33,7 @@ const SliderBanner = () => {
     const fetchBanners = async () => {
       try {
         console.log("hello")
-        const response = await axios.get("https://api.wingobd.com/admin/banners"); // Update with your API endpoint
+        const response = await axios.get("http://localhost:8080/admin/banners"); // Update with your API endpoint
         setBanners(response.data.filenames || []); // Set filenames as banners
         console.log(response)
       } catch (error) {
@@ -55,7 +55,7 @@ const SliderBanner = () => {
         {banners.map((slide) => (
           <SwiperSlide key={slide.id}>
             <img
-              src={`https://api.wingobd.com/images/${slide}`}
+              src={`http://localhost:8080/images/${slide}`}
               alt={`Slide ${slide.id}`}
               className="w-full h-44 sm:h-48 object-fill rounded-xl shadow-lg"
             />

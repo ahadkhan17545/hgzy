@@ -33,7 +33,7 @@ const Addsectiongame = () => {
     formData.append("image", image);
 
     try {
-      const response = await axios.post("https://api.wingobd.com/admin/add-api-game", formData, {
+      const response = await axios.post("http://localhost:8080/admin/add-api-game", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 

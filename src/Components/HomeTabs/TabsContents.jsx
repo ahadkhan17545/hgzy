@@ -38,7 +38,7 @@ const TabsContents = ({ contentRef, activeTab, tabNames, language, tabs }) => {
                   <img
                     key={index}
                     onClick={() => handleGameClick(imgSrc)}
-                    src={`https://api.wingobd.com/images/${imgSrc.imagePath}`}
+                    src={`http://localhost:8080/images/${imgSrc.imagePath}`}
                     alt={`Content ${index + 1}`}
                     className={`${
                       activeTab === 3
@@ -68,7 +68,7 @@ const TabsContents = ({ contentRef, activeTab, tabNames, language, tabs }) => {
                     <img
                       key={index}
                       onClick={() => handleGameClick(imgSrc)}
-                      src={`https://api.wingobd.com/images/${imgSrc.imagePath}`}
+                      src={`http://localhost:8080/images/${imgSrc.imagePath}`}
                       alt={`${imgSrc}`}
                       className={` ${
                         activeTab === 3

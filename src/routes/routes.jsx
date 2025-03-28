@@ -22,6 +22,9 @@ import Account from "../Pages/Account";
 import Language from "../Pages/Language";
 import WalletMethod from "../Pages/WalletMethod";
 import EwalletMethod from "../Pages/EwalletMethod";
+import Activeuser from "../admin/pages/users/Activeuser";
+import Alldeposit from "../admin/pages/deposit/Alldeposit";
+import Allwithdraw from "../admin/pages/withdraw/Allwithdraw";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +50,9 @@ const router = createBrowserRouter([
       { path: "/dashboard/slider-list", element: <Sliderlist /> },
       { path: "/dashboard/add-game", element: <Addsectiongame /> },
       { path: "/dashboard/all-games", element: <Sectiongame /> },
+      { path: "/dashboard/active-users", element: <Activeuser /> },
+      { path: "/dashboard/all-deposits", element: <Alldeposit /> },
+      { path: "/dashboard/all-withdraw", element: <Allwithdraw /> },
     ],
   },
   { path: "/account", element: <Account /> },

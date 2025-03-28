@@ -29,7 +29,7 @@ const WithdrawHistory = () => {
     }
 
     try {
-      const response = await axios.post(`https://api.wingobd.com/user/withdraw`, {
+      const response = await axios.post(`http://localhost:8080/user/withdraw`, {
         paymentMethod,
         amount: selectedAmount,
         walletNumber,

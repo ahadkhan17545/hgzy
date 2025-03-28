@@ -16,6 +16,7 @@ const DepositHistory = () => {
   const [copySuccess, setCopySuccess] = useState(false);
   const [transaction_id,set_transaction_id]=useState("");
   const user_info=JSON.parse(localStorage.getItem("user"));
+  
 const handleAgentCopy = () => {
    navigator.clipboard.writeText(agentNumber);
    setCopySuccess(true); // Show check icon on copy
@@ -130,7 +131,7 @@ const handleAgentCopy = () => {
       console.error("Error:", error);
     }
   };
-  const { fetchDepositById, depositData, loading, error } = useContext(GameContext);
+  const { fetchDepositById, depositData, loading, error,fetchUserInfo,user } = useContext(GameContext);
 
   useEffect(() => {
     fetchDepositById();
@@ -157,7 +158,7 @@ const handleAgentCopy = () => {
               <span>
                 <TbCurrencyTaka size={28} />
               </span>
-              <p className="text-xl font-bold">0.00</p>
+              <p className="text-xl font-bold">{user.balance?.toFixed(0,2)}</p>
             </div>
           </div>
         </div>

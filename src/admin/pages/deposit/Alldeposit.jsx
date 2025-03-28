@@ -8,7 +8,7 @@ import Header from '../../common/Header';
 import toast,{Toaster} from "react-hot-toast"
 
 const Alldeposit = () => {
-  const base_url = "https://api.wingobd.com"; // Correct base URL
+  const base_url = "http://localhost:8080"; // Correct base URL
   const [pending_deposit, set_pending_deposit] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [withdrawals, setWithdrawals] = useState([]);
@@ -113,10 +113,8 @@ const Alldeposit = () => {
         {moment(transaction.createdAt).format('MMMM Do YYYY, h:mm A')}
       </td>
       <td className="p-3 border-r-[1px] border-gray-400">
-        <span className="font-semibold text-gray-700">{transaction?.customer_name}</span>
-        <div className="text-blue-600 cursor-pointer hover:underline">
-          {transaction?.customer_email}
-        </div>
+        <span className="font-semibold text-gray-700">{transaction?.customer_number}</span>
+
       </td>
       <td className="p-3 border-r-[1px] border-gray-400">
         <div className="text-gray-700">৳{transaction.depositAmount}</div>

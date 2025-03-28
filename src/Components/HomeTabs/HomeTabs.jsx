@@ -8,8 +8,8 @@ import tab6 from "../../assets/tab6.png";
 import tab7 from "../../assets/tab7.png";
 import tab8 from "../../assets/tab8.png";
 import tab1Bg from '../../assets/tab1Bg.png';
-import tab2Bg from '../../assets/tab2Bg.png';
-import tab3Bg from '../../assets/tab3Bg.png';
+import tab2Bg from '../../assets/tab1Bg.png';
+import tab3Bg from '../../assets/tab1Bg.png';
 import tab4Bg from '../../assets/third_bg-dfa325e7.png'
 import tab7Bg from '../../assets/fish_bg-bf0b060b.png';
 import tab8Bg from '../../assets/game_mini_bg-c04fcbbd.png' ;
@@ -105,7 +105,7 @@ const HomeTabs = () => {
                 {tabs.slice(0, 3).map((tab, index) => (
                     <div 
                         key={tab.id} 
-                        className={`p-4  w-full ${index === 0 ? "md:h-[110%]" : "h-[100%]"}   cursor-pointer bg-cover bg-center relative`} 
+                        className={`p-4   w-full   cursor-pointer bg-cover bg-center relative`} 
                         style={{ backgroundImage: `url(${tab.bgImage}) ` }}
                         onClick={() => handleTabClick(tab.id)}
                     >
@@ -120,11 +120,11 @@ const HomeTabs = () => {
                 {tabs.slice(3, 6).map((tab, index) => (
                     <div 
                         key={tab.id} 
-                        className="md:p-4 py-4 flex-1 rounded-lg cursor-pointer bg-cover bg-center" 
+                        className="md:p-4 py-4 flex-1 rounded-lg cursor-pointer  bg-cover bg-center" 
                         style={{ backgroundImage: `url(${tab.bgImage})` }}
                         onClick={() => handleTabClick(tab.id)}
                     >
-                        <div className="border-r border-white border-opacity-20">
+                        <div className="border-r  border-white border-opacity-20">
 
                         
                         <img src={tab.image} alt={tabNames[language][index + 3]} className="w-16 h-16 mx-auto" />

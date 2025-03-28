@@ -14,7 +14,6 @@ const MainLayout = () => {
           <Outlet context={{ isOpen, setIsOpen }} />
           {/* const { isOpen, setIsOpen } = useOutletContext(); */}
         </main>
-        <Footer isOpen={isOpen} setIsOpen={setIsOpen} />
 
         <BottomNavigationBar />
       </div>

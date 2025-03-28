@@ -6,7 +6,7 @@ import Marquee from "../Components/Marquee";
 import SliderBanner from "../Components/SliderBanner/SliderBanner";
 import WinningInformation from "../Components/WinningInformation/WinningInformation";
 import { GameContext } from "../context/GameContext";
-import splash_img from "../assets/splash_screen.png"
+import splash_img from "../assets/start.png"
 import logo from "../assets/h5setting_202402261158175271.png"
 const winners = [
   {
@@ -92,13 +92,18 @@ const handleConfirm = () => {
 
   if (isLoading) {
     return (
-      <div className="fixed inset-0 flex flex-col items-center justify-center bg-backgroundWhite h-[100vh]  z-[1000]">
-        <img
+      <div className="fixed inset-0 flex flex-col items-center justify-center    h-[100vh]  z-[1000]">
+      <div className="bg-gradient-to-t from-neutral-800 to-indigo-600 w-full flex justify-center items-center flex-col gap-[20px] max-w-[480px] mx-auto min-h-screen">
+
+      <img
           src={splash_img}
           alt="Loading..."
           className="w-full max-w-[400px] mx-auto"
         />
-        <img src={logo} alt="" />
+        <h1 className="text-[25px] font-[600] text-white uppercase leading-[20px]">Welcome to wingobd</h1>
+        <h1 className=" text-white font-[600] text-[22px]">www.wingobd.com</h1>
+      </div>
+       
       </div>
     );
   }
