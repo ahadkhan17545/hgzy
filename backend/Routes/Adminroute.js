@@ -714,6 +714,16 @@ admin_route.get("/api-games/category", async (req, res) => {
 
     const find_popular_games = await Apimodel.find({ category: category2 });
     const find_plartform_games = await Apimodel.find({ category: category1 });
+    const find_lottery_games = await Apimodel.find({ category:"লটারি" });
+    const lottery_games = await Apimodel.find({ category:"লটারি" });
+    const electric_games = await Apimodel.find({ category:"বৈদ্যুতিক" });
+    const sports_games = await Apimodel.find({ category:"স্পোর্টস" });
+    const casino_games = await Apimodel.find({ category:"ক্যাসিনো গেম" });
+    const chesss_games = await Apimodel.find({ category:"দাবা" });
+    const fish_games = await Apimodel.find({ category:"মাছ শিকার" });
+    const games = await Apimodel.find({ category:"গেমস" });
+
+
     const all_games = await Apimodel.find();
 
     res.json({
@@ -721,6 +731,13 @@ admin_route.get("/api-games/category", async (req, res) => {
       find_popular_games,
       find_plartform_games,
       all_games,
+      lottery_games,
+      electric_games,
+      sports_games,
+      casino_games,
+      chesss_games,
+      fish_games,
+      games
     });
   } catch (error) {
     console.error("Error fetching games by category:", error);

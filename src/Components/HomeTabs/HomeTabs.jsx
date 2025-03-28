@@ -37,7 +37,13 @@ import { GameContext } from "../../context/GameContext";
 const HomeTabs = () => {
     const { language } = useContext(LanguageContext);
     const [activeTab, setActiveTab] = useState(3);
-    const {fetchAllGames,popular_game,plartform_game,all_games}=useContext(GameContext)
+    const {fetchAllGames,popular_game,plartform_game,all_games, lottery_games,
+      electric_games,
+      sports_games,
+      casino_games,
+      chesss_games,
+      fish_games,
+      game}=useContext(GameContext)
     useEffect(()=>{
         fetchAllGames();
     },[])
@@ -51,8 +57,8 @@ const HomeTabs = () => {
             
         },
         { id: 2, image: tab2, bgImage: tab2Bg ,
-            contents: []},
-        { id: 3, image: tab3, bgImage: tab3Bg,contentBg: [tab3Content1, tab3Content2,tab3Content3, ]
+            ccontentBg: [tab3Content1, ]},
+        { id: 3, image: tab3, bgImage: tab3Bg,contentBg:electric_games
             
          },
         { id: 4, image: tab4, bgImage: tab4Bg ,
@@ -81,8 +87,8 @@ const HomeTabs = () => {
             
         ] },
         { id: 6, image: tab6, bgImage: tab4Bg },
-        { id: 7, image: tab7, bgImage: tab7Bg ,contentBg: [tab7Content1, tab7Content2, ]},
-        { id: 8, image: tab8, bgImage: tab8Bg,contentBg: [tab8Content1, tab8Content2, ] },
+        { id: 7, image: tab7, bgImage: tab7Bg ,contentBg:fish_games},
+        { id: 8, image: tab8, bgImage: tab8Bg,contentBg:game},
     ];
     console.log(tabs[0].contentTwoBg)
     const handleTabClick = (id) => {

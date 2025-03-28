@@ -5,12 +5,12 @@ import Sidebar from '../admin/common/Sidebar';
 const AdminLayout = () => {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const isAdmin = localStorage.getItem('admin'); // Ensure this key exists when logging in
-    if (!isAdmin) {
-      navigate('/'); // Redirect to login if not admin
-    }
-  }, [navigate]);
+  // useEffect(() => {
+  //   const isAdmin = localStorage.getItem('admin'); // Ensure this key exists when logging in
+  //   if (!isAdmin) {
+  //     navigate('/'); // Redirect to login if not admin
+  //   }
+  // }, [navigate]);
 
   return (
     <section>

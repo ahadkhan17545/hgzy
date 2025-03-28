@@ -15,7 +15,7 @@ export default function AdminLogin() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData)
-    axios.post(`http://localhost:8080/auth/login`, {phone:formData.email,password:formData.password}).then((res) => { 
+    axios.post(`https://api.wingobd.com/auth/login`, {phone:formData.email,password:formData.password}).then((res) => { 
     if(res.data.success){
       console.log(res.data.user)
       if(res.data.user.is_admin=="true"){

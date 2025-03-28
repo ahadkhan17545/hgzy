@@ -19,13 +19,9 @@ const withdrawSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    customer_name: {
+    customer_id: {
       type: String,
       default:"",
-    },
-    customer_email: {
-      type: String,
-      required: true,
     },
     status: {
       type: String,

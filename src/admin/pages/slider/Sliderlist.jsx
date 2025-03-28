@@ -4,7 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 import Header from '../../common/Header';
 import { MdDelete } from "react-icons/md";
 const Sliderlist = () => {
-  const base_url = "http://localhost:8080"; // Correct base URL for images
+  const base_url = "https://api.wingobd.com"; // Correct base URL for images
 
   const [banners, setBanners] = useState([]);
 
@@ -12,7 +12,7 @@ const Sliderlist = () => {
   useEffect(() => {
     const fetchBanners = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/admin/banners"); // Correct the URL
+        const response = await axios.get("https://api.wingobd.com/admin/banners"); // Correct the URL
         setBanners(response.data.filenames || []);
       } catch (error) {
         console.error("Error fetching banners:", error);
@@ -26,7 +26,7 @@ const Sliderlist = () => {
  const handleDeleteImage = async (imageName) => {
     try {
       // Call the delete API route
-      const response = await axios.delete(`http://localhost:8080/admin/banners/${imageName}`);
+      const response = await axios.delete(`https://api.wingobd.com/admin/banners/${imageName}`);
       if (response.status === 200) {
         toast.success("Image deleted successfully");
         setBanners((prevBanners) => prevBanners.filter((banner) => banner !== imageName));

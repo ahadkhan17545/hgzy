@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast,{Toaster} from "react-hot-toast";
 const RegisterContents = () => {
-  const base_url="http://localhost:8080"
+  const base_url="https://api.wingobd.com"
   const navigate=useNavigate();
   const texts = {
     en: {
