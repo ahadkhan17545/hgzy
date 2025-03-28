@@ -42,7 +42,7 @@ const LoginTabs = ({ language, texts }) => {
 
       if (response.data.success) {
         localStorage.setItem("token", response.data.token);
-        localStorage.setItem("user", response.data.user);
+        localStorage.setItem("user",JSON.stringify(response.data.user));
         toast.success("Login successful!");
         navigate("/")
       } else {
@@ -180,7 +180,7 @@ const LoginTabs = ({ language, texts }) => {
           </button>
           <Link to="/register">
           <button type="submit" className="w-full bg-sideBg text-white py-2 rounded-full" disabled={loading}>
-            {loading ? "Logging in..." : texts[language].title}
+          রেজিস্ট্রেশন করুন 
           </button>
 
           </Link>
