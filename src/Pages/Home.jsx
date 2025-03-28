@@ -1,9 +1,11 @@
+import { useContext } from "react";
 import EarningChart from "../Components/EarningChart/EarningChart";
 import EarningRank from "../Components/EarningChart/EarningRank";
 import HomeTabs from "../Components/HomeTabs/HomeTabs";
 import Marquee from "../Components/Marquee";
 import SliderBanner from "../Components/SliderBanner/SliderBanner";
 import WinningInformation from "../Components/WinningInformation/WinningInformation";
+import { GameContext } from "../context/GameContext";
 
 const winners = [
   {
@@ -70,6 +72,7 @@ const userData = [
   },
 ];
 const home = () => {
+  const {all_games}=useContext(GameContext)
   return (
     <div className="bg-backgroundWhite">
       <SliderBanner />
