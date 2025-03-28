@@ -1,13 +1,9 @@
-import { useContext, useEffect, useState } from "react";
 import EarningChart from "../Components/EarningChart/EarningChart";
 import EarningRank from "../Components/EarningChart/EarningRank";
 import HomeTabs from "../Components/HomeTabs/HomeTabs";
 import Marquee from "../Components/Marquee";
 import SliderBanner from "../Components/SliderBanner/SliderBanner";
 import WinningInformation from "../Components/WinningInformation/WinningInformation";
-import loadingImg from "../assets/start.png";
-import logo from "../assets//h5setting_202402261158175271.png";
-import { GameContext } from "../context/GameContext";
 
 const winners = [
   {
@@ -74,32 +70,6 @@ const userData = [
   },
 ];
 const Home = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const { games } = useContext(GameContext);
-
-  console.log("games", games);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="fixed inset-0 flex flex-col items-center justify-center bg-backgroundWhite ">
-        <img
-          src={loadingImg}
-          alt="Loading..."
-          className="w-full max-w-[400px] mx-auto"
-        />
-        <img src={logo} alt="" />
-      </div>
-    );
-  }
-
   return (
     <div className="bg-backgroundWhite">
       <SliderBanner />

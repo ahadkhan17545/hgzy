@@ -37,7 +37,7 @@ import { GameContext } from "../../context/GameContext";
 const HomeTabs = () => {
     const { language } = useContext(LanguageContext);
     const [activeTab, setActiveTab] = useState(3);
-    const {fetchAllGames,popular_game,plartform_game}=useContext(GameContext)
+    const {fetchAllGames,popular_game,plartform_game,all_games}=useContext(GameContext)
     useEffect(()=>{
         fetchAllGames();
     },[])

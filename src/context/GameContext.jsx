@@ -18,7 +18,6 @@ export const GameProvider = ({ children }) => {
     setError(null);
     try {
       const response = await axios.get("http://localhost:8080/admin//api-games/category");
-      console.log(response.data.all_games)
       set_popular_game(response.data.find_popular_games);
       set_plartform_game(response.data.find_plartform_games);
       set_all_games(response.data.all_games)
@@ -52,7 +51,7 @@ export const GameProvider = ({ children }) => {
     }
   };
   return (
-    <GameContext.Provider value={{ games,fetchAllGames, fetchGamesByCategory, loading, error,popular_game,plartform_game}}>
+    <GameContext.Provider value={{ games,fetchAllGames, fetchGamesByCategory, loading, error,popular_game,plartform_game,all_games}}>
       {children}
     </GameContext.Provider>
   );
