@@ -11,15 +11,17 @@ export const GameProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const [popular_game,set_popular_game]=useState([]);
   const [plartform_game,set_plartform_game]=useState([]);
+  const [all_games,set_all_games]=useState([]);
   // Fetch all games
   const fetchAllGames = async () => {
     setLoading(true);
     setError(null);
     try {
       const response = await axios.get("http://localhost:8080/admin//api-games/category");
-      console.log(response)
+      console.log(response.data.all_games)
       set_popular_game(response.data.find_popular_games);
       set_plartform_game(response.data.find_plartform_games);
+      set_all_games(response.data.all_games)
     } catch (err) {
       setError(err.response?.data?.message || "Failed to fetch games");
     } finally {
