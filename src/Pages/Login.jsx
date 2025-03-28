@@ -33,7 +33,7 @@ const Login = () => {
 
   return (
     
-      <div className="max-w-[480px] mx-auto min-h-screen ">
+      <div className="max-w-[480px] bg-lightWhite  mx-auto min-h-screen ">
         <TopLoginRegisterPassword />
 
         <LoginTabs texts={texts} language={language} />

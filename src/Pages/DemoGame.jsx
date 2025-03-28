@@ -11,7 +11,7 @@ const DemoGame = () => {
   return (
     <div>
       <iframe
-        className="w-full h-[600px] max-h-screen"
+        className="w-full h-[80vh] max-h-screen"
         src={game?.liveUrl}
         frameBorder="0"
         allowFullScreen
