@@ -59,7 +59,7 @@ const Addgame = () => {
     data.append("description", formData.description); // Sending description
 
     try {
-      await axios.post(`http://localhost:8080/admin/create-game`, data);
+      await axios.post(`https://wingobd.onrender.com/admin/create-game`, data);
       toast.success("Game updated successfully!");
     } catch (error) {
       console.log(error)
