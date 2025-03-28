@@ -1,4 +1,21 @@
+import { Link, useNavigate } from "react-router-dom";
+
 const TabsContents = ({ contentRef, activeTab, tabNames, language, tabs }) => {
+  const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const handleGameClick = (game) => {
+    if (!user) {
+      alert("Please login to play the game.");
+      return;
+    }
+    if (!game.liveUrl && user) {
+      alert("Game not available.");
+      return;
+    } else {
+      navigate(`/games/${game._id}`);
+    }
+  };
   return (
     <div ref={contentRef} className="mt-10  bg-gray-200 rounded-lg">
       {activeTab ? (
@@ -20,6 +37,7 @@ const TabsContents = ({ contentRef, activeTab, tabNames, language, tabs }) => {
                 {tabs[activeTab - 1].contentTwoBg.map((imgSrc, index) => (
                   <img
                     key={index}
+                    onClick={() => handleGameClick(imgSrc)}
                     src={`http://localhost:8080/images/${imgSrc.imagePath}`}
                     alt={`Content ${index + 1}`}
                     className={`${
@@ -49,6 +67,7 @@ const TabsContents = ({ contentRef, activeTab, tabNames, language, tabs }) => {
                   {tabs[activeTab - 1].contentBg.map((imgSrc, index) => (
                     <img
                       key={index}
+                      onClick={() => handleGameClick(imgSrc)}
                       src={`http://localhost:8080/images/${imgSrc.imagePath}`}
                       alt={`${imgSrc}`}
                       className={` ${

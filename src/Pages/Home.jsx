@@ -1,11 +1,9 @@
-import { useContext } from "react";
 import EarningChart from "../Components/EarningChart/EarningChart";
 import EarningRank from "../Components/EarningChart/EarningRank";
 import HomeTabs from "../Components/HomeTabs/HomeTabs";
 import Marquee from "../Components/Marquee";
 import SliderBanner from "../Components/SliderBanner/SliderBanner";
 import WinningInformation from "../Components/WinningInformation/WinningInformation";
-import { GameContext } from "../context/GameContext";
 
 const winners = [
   {
@@ -71,13 +69,12 @@ const userData = [
     amount: 178032240.0,
   },
 ];
-const home = () => {
-  const {all_games}=useContext(GameContext)
+const Home = () => {
   return (
     <div className="bg-backgroundWhite">
       <SliderBanner />
-{/* Marquee */}
-<Marquee/>
+      {/* Marquee */}
+      <Marquee />
       {/* HomeTabs */}
       <HomeTabs />
 
@@ -93,14 +90,11 @@ const home = () => {
 
       {/* earning chart */}
       <div className="px-2.5 sm:px-4 space-y-2 pb-20">
-        
         <h2 className="pl-1  text-lg font-medium border-l-2 border-red">
           Today{"'"}s earnings chart
         </h2>
         <div className="">
-
-        
-        <EarningRank userData={userData}/>
+          <EarningRank userData={userData} />
         </div>
         {userData.map((user, index) => (
           <EarningChart key={index} {...user} />
@@ -110,4 +104,4 @@ const home = () => {
   );
 };
 
-export default home;
+export default Home;

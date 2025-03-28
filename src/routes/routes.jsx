@@ -15,6 +15,7 @@ import AddSlider from "../admin/pages/slider/Addslider";
 import Sliderlist from "../admin/pages/slider/Sliderlist";
 import Addsectiongame from "../admin/pages/gamelist/Addsectiongame";
 import Sectiongame from "../admin/pages/gamelist/Sectiongame";
+import DemoGame from "../Pages/DemoGame";
 import Deposit from "../Pages/Deposit";
 import Withdraw from "../Pages/Withdraw";
 import Account from "../Pages/Account";
@@ -26,7 +27,16 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
-    children: [{ path: "/", element: <Home /> }],
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/games/:id",
+        element: <DemoGame />,
+      },
+    ],
   },
   {
     path: "/dashboard",
